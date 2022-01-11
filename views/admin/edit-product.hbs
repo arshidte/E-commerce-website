@@ -1,0 +1,33 @@
+<h2 class="text-center mt-4">Edit Product</h2>
+<section class="container d-flex align-items-center bg-success rounded-2 mt-4" style="box-shadow: 5px 10px #a0a0a0;">
+    <form class="row g-3 p-5" action="/admin/edit-product/{{product._id}}" method="post" enctype="multipart/form-data">
+        <div class="col-md-6">
+            <label for="inputName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="inputName" name="name" value="{{product.name}}">
+        </div>
+        <div class="col-md-6">
+            <label for="inputCategory" class="form-label">Category</label>
+            <input type="text" class="form-control" id="inputCategory" name="category" value="{{product.category}}">
+        </div>
+        <div class="col-12">
+            <label for="inputDescription" class="form-label">Description</label>
+            <input type="text" class="form-control" name="description" value="{{product.description}}">
+        </div>
+        <div class="col-md-6">
+            <label for="inputPrice" class="form-label">Price</label>
+            <input type="text" class="form-control" name="price" value="{{product.price}}">
+        </div>
+        <div class="col-md-6">
+            <label for="inputImage" class="form-label">Image</label>
+            <img src="/product-images/{{product._id}}.jpg" width="80rem" height="auto" id="imgView">
+            <input type="file" class="form-control" name="image" onchange="viewImage(event)">
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-dark">Register the product</button>
+        </div>
+    </form>
+</section>
+
+<script>
+    document.getElementById('imgView').src=URL.createObjectURL(event.target.files[0])
+</script>
